@@ -1,25 +1,66 @@
-import 'package:astute_website/pages/homepage.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:astute_website/pages/test.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:url_strategy/url_strategy.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      options: FirebaseOptions(
-    apiKey: "AIzaSyDLOLzOvC8c7PzyYBkX6SzzdcSJ_kb75tk",
-    appId: "1:754777396783:web:ac0bd13f64d44d3d7158da",
-    messagingSenderId: "754777396783",
-    projectId: "astuteblog-9ea87",
-  )); // Initialize Firebase
-  runApp(MyApp());
+void main() {
+  setPathUrlStrategy();
+  runApp(const MyApp());
 }
 
+final GoRouter _router = GoRouter(
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return const MyHomePage();
+      },
+      routes: <RouteBase>[
+        GoRoute(
+          path: 'test',
+          builder: (BuildContext context, GoRouterState state) {
+            return const HomePage();
+          },
+        ),
+      ],
+    ),
+  ],
+);
+
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Contentful Flutter Demo',
-      home: Scaffold(body: HomePage()),
+    return MaterialApp.router(
+      routerConfig: _router,
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('MyApp Home Page'),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            const Text(
+              'Welcome to MyApp!',
+              style: TextStyle(fontSize: 24.0),
+            ),
+            ElevatedButton(
+              onPressed: () => context.go('/test'),
+              child: const Text('Go to the Details screen'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
