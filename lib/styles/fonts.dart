@@ -6,7 +6,7 @@ class MonsFontRegular extends StatelessWidget {
   final Color? color;
   final double fontsize;
 
-  MonsFontRegular(this.text, {this.color, this.fontsize = 16});
+  MonsFontRegular({required this.text, this.color, required this.fontsize});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class RobotoBold extends StatelessWidget {
   final Color? color;
   final double fontsize;
 
-  RobotoBold(this.text, {this.color, this.fontsize = 16});
+  RobotoBold({required this.text, this.color, required this.fontsize});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class RobotoSemiBold extends StatelessWidget {
   final Color? color;
   final double fontsize;
 
-  RobotoSemiBold(this.text, {this.color, this.fontsize = 16});
+  RobotoSemiBold({required this.text, this.color, required this.fontsize});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class RobotoRegular extends StatelessWidget {
   final Color? color;
   final double fontsize;
 
-  RobotoRegular(this.text, {this.color, this.fontsize = 16});
+  RobotoRegular({required this.text, this.color, required this.fontsize});
 
   @override
   Widget build(BuildContext context) {

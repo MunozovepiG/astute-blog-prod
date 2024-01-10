@@ -1,3 +1,4 @@
+import 'package:astute_website/components/reusable/navigation/menubar.dart';
 import 'package:flutter/material.dart';
 
 class About extends StatefulWidget {
@@ -10,6 +11,12 @@ class About extends StatefulWidget {
 class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      child: Column(
+        children: [
+          Text('about'),
+        ],
+      ),
+    );
   }
 }

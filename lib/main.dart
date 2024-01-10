@@ -1,3 +1,6 @@
+import 'package:astute_website/components/pages/pageWrapper.dart';
+import 'package:astute_website/components/reusable/navigation/footer.dart';
+import 'package:astute_website/components/reusable/navigation/menubar.dart';
 import 'package:astute_website/pages/aboutpage.dart';
 import 'package:astute_website/pages/contactpage.dart';
 import 'package:astute_website/pages/homepage.dart';
@@ -16,25 +19,33 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const MyHomePage();
+        return PageWrapper(
+          child: const HomePage(),
+        );
       },
       routes: <RouteBase>[
         GoRoute(
           path: 'about',
           builder: (BuildContext context, GoRouterState state) {
-            return const About();
+            return PageWrapper(
+              child: const About(),
+            );
           },
         ),
         GoRoute(
           path: 'roadmap',
           builder: (BuildContext context, GoRouterState state) {
-            return const Roadmap();
+            return PageWrapper(
+              child: const Roadmap(),
+            );
           },
         ),
         GoRoute(
           path: 'contact_us',
           builder: (BuildContext context, GoRouterState state) {
-            return const ContactUs();
+            return PageWrapper(
+              child: const ContactUs(),
+            );
           },
         ),
       ],
@@ -48,6 +59,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       routerConfig: _router,
     );
   }
