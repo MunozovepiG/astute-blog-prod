@@ -22,10 +22,6 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Text('$screenWidth'),
-            ElevatedButton(
-              onPressed: () => context.go('/test'),
-              child: const Text('Go to the Details screen'),
-            ),
           ],
         ),
       ),
